@@ -1,8 +1,16 @@
 import numpy as np
 import pandas as pd
 
-s = pd.Series([1, 3, 5, np.nan, 6, 8])
-print(s)
+# Sample objects with different PANDAS types
+obj_dict = {}
 
-dates = pd.date_range('20130101', periods=6)
-print(dates)
+obj_dict["0000"] = pd.Series([1 , np.nan, 6, "hello" , 4.25])
+obj_dict["0001"] = pd.date_range('20190322', periods=6)
+obj_dict["0002"] = pd.DataFrame(np.random.randn(6, 4), index=obj_dict["0001"] , columns=list('ABCD'))
+obj_dict["0003"] = obj_dict["0002"].to_numpy()
+
+for x in range(4):
+    print("\u0332".join("OBJECT - "+str(x))) 
+    print(obj_dict["000"+str(x)])
+    print("\n")
+
